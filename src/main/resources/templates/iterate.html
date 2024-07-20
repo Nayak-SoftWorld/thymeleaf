@@ -10,13 +10,20 @@
 	<hr />
 	
 	<ul>
-		<li th:each="n : ${names}">
-		<h2>
-			<span th:text="${n}"></span>
-		</h2>
-		</li>
+		<li th:each="n ,status : ${names}">		
+			
+				<span th:style="${status.odd} ? 'color:red;font-weight:bold' : 'font-weight:bold'" th:text="${status.index+1} + ' ' + ${n}"></span>
+			
+			<!--
+			index 	 : the current iteration index , starting with 0 (zero)
+			count 	 : the number of element processed so far
+			size 	 : the total number of element in the list
+			even/odd : check if the current iteration index is even or odd
+			first    : check if the current iteration is the first one 
+			last 	 : check if the current iteration is the last one
+			-->
+		</li>	
 	</ul>
-	
 	
 </body>
 </html>
